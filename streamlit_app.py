@@ -7,13 +7,24 @@ import pandas as pd
 from PIL import Image
 import seaborn as sns
 import matplotlib.pyplot as plt
+import pickle
+
 
 st.title("🎈 Telco Customer Churn")
 st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
 # Load your model
-model = load_model()
+
+model_path = 'project_model.pkl'
+with open(model_path, 'rb') as model_file:
+    model = pickle.load(model_file)
+
+
+def predict(model, input_data):
+    # Prepare the input_data for your model as per your preprocessing steps
+    # For example, converting categorical variables into numbers, etc.
+    return model.predict(pd.DataFrame([input_data]))[0]  # Assuming your model takes a DataFrame
 
 # Page configuration
 st.set_page_config(page_title="Telco Customer Churn Dashboard", layout="wide")
@@ -65,16 +76,8 @@ elif page == "Visualizations":
     st.pyplot(plt)
 
 
-import pickle
 
-def load_model():
-    with open("project_model.pkl", "rb") as file:  # Adjust the path to your model
-        model = pickle.load(file)
-    return model
 
-def predict(model, input_data):
-    # Prepare the input_data for your model as per your preprocessing steps
-    # For example, converting categorical variables into numbers, etc.
-    return model.predict(pd.DataFrame([input_data]))[0]  # Assuming your model takes a DataFrame
+
 
 
