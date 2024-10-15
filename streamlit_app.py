@@ -68,7 +68,7 @@ elif page == "Visualizations":
 import pickle
 
 def load_model():
-    with open("", "rb") as file:  # Adjust the path to your model
+    with open("project_model.pkl", "rb") as file:  # Adjust the path to your model
         model = pickle.load(file)
     return model
 
