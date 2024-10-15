@@ -64,3 +64,17 @@ elif page == "Visualizations":
     plt.title("Churn Distribution")
     st.pyplot(plt)
 
+
+import pickle
+
+def load_model():
+    with open("", "rb") as file:  # Adjust the path to your model
+        model = pickle.load(file)
+    return model
+
+def predict(model, input_data):
+    # Prepare the input_data for your model as per your preprocessing steps
+    # For example, converting categorical variables into numbers, etc.
+    return model.predict(pd.DataFrame([input_data]))[0]  # Assuming your model takes a DataFrame
+
+
