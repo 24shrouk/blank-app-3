@@ -24,7 +24,7 @@ page = st.sidebar.selectbox("Select a page", ("Home", "Data Overview", "Predicti
 
 if page == "Home":
     st.title("Welcome to the Telco Customer Churn Dashboard")
-    st.image("images/your_image.png")  # Add your welcome image here
+    st.image("images/telecom.jpeg")  # Add your welcome image here
     st.write("Explore customer churn data and predictions.")
     
 elif page == "Data Overview":
