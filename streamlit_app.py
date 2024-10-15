@@ -29,7 +29,7 @@ if page == "Home":
     
 elif page == "Data Overview":
     st.title("Data Overview")
-    data = pd.read_csv("path/to/your/data.csv")  # Load your dataset
+    data = pd.read_csv("projectdata.csv")  # Load your dataset
     st.write(data.head())
     st.write("Number of records:", data.shape[0])
 
