@@ -5,8 +5,10 @@ import streamlit as st
 from model import load_model, predict  # Import your model functions
 import pandas as pd
 from PIL import Image
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-st.title("🎈 My new app")
+st.title("🎈 Telco Customer Churn")
 st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
@@ -54,8 +56,7 @@ elif page == "Prediction":
 elif page == "Visualizations":
     st.title("Data Visualizations")
     # Create your visualizations using seaborn/matplotlib
-    import seaborn as sns
-    import matplotlib.pyplot as plt
+
     
     # Example: distribution of churn
     churn_counts = data['Churn'].value_counts()
