@@ -6,7 +6,7 @@ import seaborn as sns
 import numpy as np
 
 # Load your Telco Customer Churn data
-df = pd.read_csv('Telco-Customer-Churn.csv')
+df = pd.read_csv('projectdata.csv')
 
 # Sidebar navigation
 st.sidebar.title("Navigation")
