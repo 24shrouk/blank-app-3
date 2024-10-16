@@ -8,6 +8,7 @@ from PIL import Image
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pickle
+from pages import insigths
 
 
 
