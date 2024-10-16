@@ -13,9 +13,7 @@ from pages import insigths
 
 
 st.title("🎈 Telco Customer Churn")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
+
 # Load your model
 
 
@@ -45,7 +43,7 @@ def predict(model, input_data):
     return model.predict(pd.DataFrame([input_data]))[0]  # Assuming your model takes a DataFrame
 
 # Page configuration
-st.set_page_config(page_title="Telco Customer Churn Dashboard", layout="wide")
+#st.set_page_config(page_title="Telco Customer Churn Dashboard", layout="wide")
 
 # Sidebar for navigation
 ''''st.sidebar.title("Navigation")
