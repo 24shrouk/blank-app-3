@@ -12,7 +12,7 @@ from pages import page_insights
 
 
 
-st.title("🎈 Telco Customer Churn")
+st.title(" Telco Customer Churn")
 
 # Load your model
 
