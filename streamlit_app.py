@@ -8,7 +8,7 @@ from PIL import Image
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pickle
-from pages import page_insights
+from pages import insights
 
 
 
@@ -30,7 +30,7 @@ page = st.sidebar.selectbox("Select a Page", ["Insights"])
 #elif page == "Page 3":
  #   page3.app()
 if page == "Insights":
-    page_insights.app()
+   insights.app()
 
 model_path = 'project_model.pkl'
 with open(model_path, 'rb') as model_file:
