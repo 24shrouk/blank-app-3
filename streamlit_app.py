@@ -15,6 +15,22 @@ st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
 # Load your model
+import streamlit as st
+from pages import  page_insights
+
+# Sidebar for navigation
+st.sidebar.title(" Telco Customer Churn")
+page = st.sidebar.selectbox("Select a Page", ["Insights"])
+
+# Load the page based on selection
+#if page == "Page 1":
+  #  page1.app()
+#elif page == "Page 2":
+ #   page2.app()
+#elif page == "Page 3":
+ #   page3.app()
+if page == "Insights":
+    page_insights.app()
 
 model_path = 'project_model.pkl'
 with open(model_path, 'rb') as model_file:
@@ -30,7 +46,7 @@ def predict(model, input_data):
 st.set_page_config(page_title="Telco Customer Churn Dashboard", layout="wide")
 
 # Sidebar for navigation
-st.sidebar.title("Navigation")
+''''st.sidebar.title("Navigation")
 page = st.sidebar.selectbox("Select a page", ("Home", "Data Overview", "Prediction", "Visualizations"))
 
 if page == "Home":
@@ -45,7 +61,7 @@ elif page == "Data Overview":
     st.write("Number of records:", data.shape[0])
 
 elif page == "Prediction":
-    st.title("Churn Prediction")
+    st.title("Churn Prediction")'''
     
     # User inputs for prediction
     gender = st.selectbox("Gender", ["Male", "Female"])
