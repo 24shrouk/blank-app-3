@@ -46,11 +46,4 @@ def app():
     fig.update_layout(autosize=True, width=700, height=500)
     st.plotly_chart(fig)
 
-    # Insight 5: Heatmap of Correlations
-    st.subheader("Heatmap of Correlations")
-    corr = df.apply(lambda x: pd.factorize(x)[0]).corr()
-    mask = np.triu(np.ones_like(corr, dtype=bool))
-    plt.figure(figsize=(12,8))
-    sns.heatmap(corr, mask=mask, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
-    plt.title('Correlation Heatmap')
-    st.pyplot(plt)
+    
