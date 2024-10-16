@@ -48,7 +48,7 @@ def app():
 
     # Insight 5: Heatmap of Correlations
     st.subheader("Heatmap of Correlations")
-    corr = df.apply(lambda x: pd.factorize(x)[0]).corr()
+    corr = df.corr()
     mask = np.triu(np.ones_like(corr, dtype=bool))
     plt.figure(figsize=(12,8))
     sns.heatmap(corr, mask=mask, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
