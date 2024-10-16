@@ -61,7 +61,7 @@ elif page == "Data Overview":
     st.write("Number of records:", data.shape[0])
 
 elif page == "Prediction":
-    st.title("Churn Prediction")'''
+    st.title("Churn Prediction")
     
     # User inputs for prediction
     gender = st.selectbox("Gender", ["Male", "Female"])
@@ -89,7 +89,7 @@ elif page == "Visualizations":
     churn_counts = data['Churn'].value_counts()
     sns.barplot(x=churn_counts.index, y=churn_counts.values)
     plt.title("Churn Distribution")
-    st.pyplot(plt)
+    st.pyplot(plt)'''
 
 
 
