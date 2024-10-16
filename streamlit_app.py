@@ -10,13 +10,14 @@ import matplotlib.pyplot as plt
 import pickle
 
 
+
 st.title("🎈 Telco Customer Churn")
 st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
 # Load your model
-import streamlit as st
-from pages import  insigths
+
+
 
 # Sidebar for navigation
 st.sidebar.title(" Telco Customer Churn")
