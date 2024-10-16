@@ -30,7 +30,7 @@ page = st.sidebar.selectbox("Select a Page", ["Insights"])
 #elif page == "Page 3":
  #   page3.app()
 if page == "Insights":
-    insigths.app()
+    page_insights.app()
 
 model_path = 'project_model.pkl'
 with open(model_path, 'rb') as model_file:
