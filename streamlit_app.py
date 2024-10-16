@@ -16,7 +16,7 @@ st.write(
 )
 # Load your model
 import streamlit as st
-from pages import  page_insights
+from pages import  insigths
 
 # Sidebar for navigation
 st.sidebar.title(" Telco Customer Churn")
