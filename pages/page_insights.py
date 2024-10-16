@@ -8,7 +8,7 @@ import numpy as np
 
 def app():
     # Load your Telco Customer Churn data
-    df = pd.read_csv('')
+    df = pd.read_csv('projectdata.csv')
 
     # Title
     st.title("📊 Customer Churn Insights")
