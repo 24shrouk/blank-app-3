@@ -1,49 +1,68 @@
 import streamlit as st
-import plotly.express as px
-import seaborn as sns
-import matplotlib.pyplot as plt
 import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+import seaborn as sns
+import numpy as np
 
-# Load your dataset (assuming it's already cleaned and processed)
-@st.cache
-def load_data():
-    df = pd.read_csv("projectdata.csv")
-    return df
+# Load your Telco Customer Churn data
+df = pd.read_csv('Telco-Customer-Churn.csv')
 
-df = load_data()
+# Sidebar navigation
+st.sidebar.title("Navigation")
+page = st.sidebar.selectbox("Select a page:", ["Customer Churn Insights"])
 
-def app():
-    st.title("Customer Churn Insights")
-
-    # Insight 1: Churn Distribution by Internet Service
-    st.subheader("Churn Distribution by Internet Service")
-    color_map = {"Yes": "#FF97FF", "No": "#AB63FA"}
-    fig = px.histogram(df, x="Churn", color="InternetService", barmode="group", 
-                       title="<b>Churn by Internet Service</b>", color_discrete_map=color_map)
-    fig.update_layout(width=700, height=500, bargap=0.1)
-    st.plotly_chart(fig)
-
-    # Insight 2: Churn by Gender and Internet Service
-    st.subheader("Churn by Gender and Internet Service")
-    fig = px.histogram(df, x="gender", color="Churn", facet_col="InternetService", barmode="group",
-                       title="<b>Churn by Gender and Internet Service</b>", color_discrete_map=color_map)
-    fig.update_layout(width=700, height=500, bargap=0.1)
-    st.plotly_chart(fig)
-
-    # Insight 3: Monthly Charges Distribution by Churn
-    st.subheader("Distribution of Monthly Charges by Churn")
-    plt.figure(figsize=(8,4))
-    ax = sns.kdeplot(df.MonthlyCharges[df["Churn"] == 'No'], color="Red", shade=True)
-    ax = sns.kdeplot(df.MonthlyCharges[df["Churn"] == 'Yes'], color="Blue", shade=True)
-    ax.set_title('Monthly Charges Distribution (Churn vs No Churn)')
-    ax.set_xlabel('Monthly Charges')
-    ax.set_ylabel('Density')
-    st.pyplot(plt)
-
-    # Insight 4: Tenure vs Churn
-    st.subheader("Box Plot of Tenure vs Churn")
-    fig = px.box(df, x='Churn', y='tenure', title="<b>Tenure vs Churn</b>")
-    fig.update_layout(autosize=True, width=700, height=500)
-    st.plotly_chart(fig)
-
+# If "Customer Churn Insights" is selected
+if page == "Customer Churn Insights":
+    st.title("📊 Customer Churn Insights")
     
+    # Pie Chart: Churn Distribution
+    st.subheader("Churn Distribution")
+    churn_counts = df['Churn'].value_counts()
+    fig = px.pie(churn_counts, values=churn_counts.values, names=churn_counts.index, title="Churn Distribution", color_discrete_sequence=px.colors.sequential.RdBu)
+    st.plotly_chart(fig)
+    
+    # Bar Chart: Churn by Gender and Internet Service
+    st.subheader("Churn by Gender and Internet Service")
+    df_gender_internet = df.groupby(['gender', 'InternetService', 'Churn']).size().reset_index(name='counts')
+    fig = px.bar(df_gender_internet, x="InternetService", y="counts", color="Churn", barmode="group", facet_col="gender", title="Churn by Gender and Internet Service")
+    st.plotly_chart(fig)
+    
+    # Box Plot: Tenure vs Churn
+    st.subheader("Box Plot of Tenure vs Churn")
+    fig = px.box(df, x='Churn', y='tenure', title="Tenure Distribution by Churn")
+    st.plotly_chart(fig)
+    
+    # Distribution Plot: Monthly Charges by Churn
+    st.subheader("Distribution of Monthly Charges by Churn")
+    fig = px.histogram(df, x="MonthlyCharges", color="Churn", marginal="rug", title="Monthly Charges Distribution by Churn")
+    st.plotly_chart(fig)
+    
+    # Correlation Heatmap
+    st.subheader("Heatmap of Correlations")
+    corr = df.corr(numeric_only=True)
+    mask = np.triu(np.ones_like(corr, dtype=bool))
+    fig_corr = sns.heatmap(corr, mask=mask, annot=True, cmap='coolwarm')
+    st.pyplot(fig_corr.figure)
+    
+    # Additional Chart 1: Pie Chart for Contract Types
+    st.subheader("Contract Type Distribution")
+    contract_counts = df['Contract'].value_counts()
+    fig = px.pie(contract_counts, values=contract_counts.values, names=contract_counts.index, title="Contract Type Distribution")
+    st.plotly_chart(fig)
+    
+    # Additional Chart 2: Stacked Bar Chart for Churn and Phone Service
+    st.subheader("Churn Distribution w.r.t. Phone Service")
+    df_phone_service = df.groupby(['PhoneService', 'Churn']).size().reset_index(name='counts')
+    fig = px.bar(df_phone_service, x="PhoneService", y="counts", color="Churn", barmode="stack", title="Churn by Phone Service")
+    st.plotly_chart(fig)
+    
+    # Additional Chart 3: Senior Citizens Churn Rates
+    st.subheader("Churn Distribution w.r.t Senior Citizen")
+    senior_counts = df.groupby(['SeniorCitizen', 'Churn']).size().reset_index(name='counts')
+    fig = px.bar(senior_counts, x="SeniorCitizen", y="counts", color="Churn", title="Churn by Senior Citizen")
+    st.plotly_chart(fig)
+
+# Run the app
+if __name__ == '__main__':
+    st.set_page_config(page_title='Telco Customer Churn Insights', layout='wide')
