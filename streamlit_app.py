@@ -11,14 +11,14 @@ st.set_page_config(page_title="Telco Customer Churn Dashboard", layout="wide")
 
 # Sidebar for navigation
 st.sidebar.title("Telco Customer Churn")
-page = st.sidebar.selectbox("Select a Page", ["Dashboard_homepage", "Insights"])
+#page = st.sidebar.selectbox("Select a Page", ["Dashboard_homepage", "Insights"])
 
 # Navigation logic
 
-if page == "Insights":
-    insights.app()  # Ensure insights has an app() method that renders content
-else:
-    dashboard_homepage.app()  #
+#if page == "Insights":
+   # insights.app()  # Ensure insights has an app() method that renders content
+#else:
+  #  dashboard_homepage.app()  #
 
 # Prediction Model Loading
 model_path = 'project_model.pkl'
