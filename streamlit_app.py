@@ -10,6 +10,6 @@ from pages import dashboard_homepage  # Ensure this page is correctly imported
 #st.set_page_config(page_title="Telco Customer Churn Dashboard", layout="wide")
 
 # Sidebar for navigation
-st.sidebar.title("Telco Customer Churn")
+
 
 
