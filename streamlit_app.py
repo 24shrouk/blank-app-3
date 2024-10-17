@@ -29,10 +29,11 @@ page = st.sidebar.selectbox("Select a Page", ["Insights","HomePage"])
  #   page2.app()
 #elif page == "Page 3":
  #   page3.app()
-if page == "Insights":
-   insights.app()
-else :
+if page == "HomePage" :
    dashboard_homepage.app()
+
+elif page == "Insights":
+   insights.app()
 
 model_path = 'project_model.pkl'
 with open(model_path, 'rb') as model_file:
