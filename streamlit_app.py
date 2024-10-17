@@ -20,7 +20,7 @@ st.title(" Telco Customer Churn")
 
 # Sidebar for navigation
 st.sidebar.title(" Telco Customer Churn")
-page = st.sidebar.selectbox("Select a Page", ["Insights"])
+page = st.sidebar.selectbox("Select a Page", ["Insights","HomePage"])
 
 # Load the page based on selection
 #if page == "Page 1":
