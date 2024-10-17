@@ -1,4 +1,4 @@
-# pages/insights.py
+ pages/insights.py
 
 import streamlit as st
 import pandas as pd
