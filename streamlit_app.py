@@ -20,11 +20,4 @@ if page == "Insights":
 #else:
   #  dashboard_homepage.app()  #
 
-# Prediction Model Loading
-model_path = 'project_model.pkl'
-with open(model_path, 'rb') as model_file:
-    model = pickle.load(model_file)
 
-# Prediction Function
-def predict(model, input_data):
-    return model.predict(pd.DataFrame([input_data]))[0]  # Assuming your model takes a DataFrame
