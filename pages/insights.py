@@ -6,12 +6,13 @@ import plotly.express as px
 import seaborn as sns
 import numpy as np
 
-def app():
-    # Load your Telco Customer Churn data
-    df = pd.read_csv('projectdata.csv')
+
 def main():
     # Title
     st.title("📊 Customer Churn Insights")
+def app():
+    # Load your Telco Customer Churn data
+    df = pd.read_csv('projectdata.csv')
 
     # Pie Chart: Churn Distribution
     st.subheader("Churn Distribution")
