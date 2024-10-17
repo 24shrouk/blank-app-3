@@ -15,7 +15,7 @@ st.sidebar.title("Telco Customer Churn")
 
 # Navigation logic
 
-#if page == "Insights":
+if page == "Insights":
    # insights.app()  # Ensure insights has an app() method that renders content
 #else:
   #  dashboard_homepage.app()  #
