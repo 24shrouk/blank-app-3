@@ -2,7 +2,6 @@
 
 
 import streamlit as st
-#from model import load_model, predict  # Import your model functions
 import pandas as pd
 from PIL import Image
 import seaborn as sns
