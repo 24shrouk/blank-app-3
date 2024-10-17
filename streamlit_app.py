@@ -31,7 +31,7 @@ page = st.sidebar.selectbox("Select a Page", ["Insights"])
  #   page3.app()
 if page == "Insights":
    insights.app()
-else 
+else :
    dashboard_homepage.app()
 
 model_path = 'project_model.pkl'
