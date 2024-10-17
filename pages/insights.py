@@ -12,7 +12,7 @@ def main():
     st.title("📊 Customer Churn Insights")
     def app():
     # Load your Telco Customer Churn data
-         df = pd.read_csv('projectdata.csv')
+        df = pd.read_csv('projectdata.csv')
 
     # Pie Chart: Churn Distribution
     st.subheader("Churn Distribution")
