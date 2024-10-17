@@ -14,22 +14,16 @@ from pages import dashboard_homepage
 
 st.title(" Telco Customer Churn")
 
-# Load your model
+
 
 
 
 # Sidebar for navigation
 st.sidebar.title(" Telco Customer Churn")
-page = st.sidebar.selectbox("Select a Page", ["Insights","HomePage"])
+page = st.sidebar.selectbox("Select a Page", ["Insights","Dashboard_homepage"])
 
-# Load the page based on selection
-#if page == "Page 1":
-  #  page1.app()
-#elif page == "Page 2":
- #   page2.app()
-#elif page == "Page 3":
- #   page3.app()
-if page == "HomePage" :
+
+if page == "Dashboard_homepage" :
    dashboard_homepage.app()
 
 elif page == "Insights":
