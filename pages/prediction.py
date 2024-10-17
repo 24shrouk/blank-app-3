@@ -66,8 +66,8 @@ def main():
                             streaming_movies_mapping[streaming_movies]]])
 
     # Debug: Check the shape of the input data
-    st.write(f"Input Data Shape: {input_data.shape}")
-    st.write(f"Input Data: {input_data}")
+    #st.write(f"Input Data Shape: {input_data.shape}")
+    #st.write(f"Input Data: {input_data}")
 
     if st.button("Predict Churn"):
         # Ensure input data has 19 features
