@@ -8,6 +8,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pickle
 from pages import insights
+from pages import dashboard_homepage
 
 
 
@@ -30,6 +31,8 @@ page = st.sidebar.selectbox("Select a Page", ["Insights"])
  #   page3.app()
 if page == "Insights":
    insights.app()
+else 
+   dashboard_homepage.app()
 
 model_path = 'project_model.pkl'
 with open(model_path, 'rb') as model_file:
