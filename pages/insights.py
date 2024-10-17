@@ -60,3 +60,6 @@ def main():
     senior_counts = df.groupby(['SeniorCitizen', 'Churn']).size().reset_index(name='counts')
     fig = px.bar(senior_counts, x="SeniorCitizen", y="counts", color="Churn", title="Churn by Senior Citizen")
     st.plotly_chart(fig)
+
+if __name__ == "__main__":
+    main()
