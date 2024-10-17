@@ -11,7 +11,7 @@ st.set_page_config(page_title="Telco Customer Churn Dashboard", layout="wide")
 
 # Sidebar for navigation
 st.sidebar.title("Telco Customer Churn")
-page = st.sidebar.selectbox("Select a Page", ["Dashboard_homepage", "Insights"])
+page = st.sidebar.selectbox("Select a Page", ["Insights"])
 
 # Navigation logic
 
